@@ -1,0 +1,15 @@
+  version: '3'
+    
+  services:
+    web:
+      container_name: pms_web_standalone
+      image: rajankarki327/pms_v1
+      command: bash -c "python manage.py migrate && python manage.py loaddata users.json && python manage.py runserver 0.0.0.0:8000"
+      volumes:
+        - .:/django_docker
+      ports:
+        - "8004:8000"
+  networks:
+    default:
+      external:
+        name: postgres_db 

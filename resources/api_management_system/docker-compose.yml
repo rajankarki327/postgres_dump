@@ -1,0 +1,15 @@
+  version: '3'
+    
+  services:
+    web:
+      container_name: api_management_system
+      image: rajankarki327/api_management_system_v1
+      command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+      volumes:
+        - .:/django_docker
+      ports:
+        - "8005:8000"
+  networks:
+    default:
+      external:
+        name: postgres_db 

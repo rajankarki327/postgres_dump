@@ -1,0 +1,16 @@
+  version: '3'
+    
+  services:
+    db:
+      image: rajankarki327/postgres
+      container_name: postgresql
+      environment:
+        - POSTGRES_DB=pms
+        - POSTGRES_USER=faraz
+        - POSTGRES_PASSWORD=root
+      ports:
+      - "54322:5432"
+      networks:
+        - my_network
+  networks:
+    
